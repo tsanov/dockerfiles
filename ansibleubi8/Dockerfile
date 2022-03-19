@@ -15,12 +15,12 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade virtualenv
 RUN pip3 install pywinrm
 RUN pip3 install requests
-RUN pip3 install ansible
+# 20220319.1708. Automation platform should install it by default: RUN pip3 install ansible
 
-RUN mkdir /home/ansibleuser
-RUN useradd -ms /bin/bash ansibleuser
-RUN passwd -d ansibleuser
-RUN usermod -aG wheel ansibleuser
+RUN mkdir /home/ansible
+RUN useradd -ms /bin/bash ansible
+RUN passwd -d ansible
+RUN usermod -aG wheel ansible
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 RUN mkdir -p /etc/rc.d/sshd 
